@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from './components/Header/Header';
 import MostPopularMovies from './components/MostPopularMovies/MostPopularMovies';
 
 function App() {
     return (
         <div>
-            <h1>Welcome to My React App</h1>
+            <Header />
             <MostPopularMovies />
         </div>
     );
