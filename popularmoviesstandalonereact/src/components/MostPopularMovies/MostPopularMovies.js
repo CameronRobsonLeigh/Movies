@@ -21,7 +21,6 @@ function GrabCatalogApiService() {
 
     return (
         <div>
-            <h3 className="catalog-title">Movie Catalog</h3>
             <ul className="movie-list">
                 {catalogData.map((movie) => (
                     <li key={movie.id} className="movie-item">
