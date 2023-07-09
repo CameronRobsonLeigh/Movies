@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Api", "Catalog.Api\Catalog.Api.csproj", "{C345ED27-4ADF-4FC8-B636-76D88C94B254}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Catalog.Api.React", "Catalog.Api.React\Catalog.Api.React.esproj", "{74BD781C-1C82-4579-840A-A6DBDA8D0F29}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Catalog.Api.React", "PopularMoviesStandaloneReact\Catalog.Api.React.esproj", "{74BD781C-1C82-4579-840A-A6DBDA8D0F29}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C345ED27-4ADF-4FC8-B636-76D88C94B254} = {C345ED27-4ADF-4FC8-B636-76D88C94B254}
 	EndProjectSection
