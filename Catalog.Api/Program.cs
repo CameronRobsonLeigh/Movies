@@ -2,17 +2,6 @@ using Catalog.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin()
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
-
-});
-
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<MostPopularMoviesService>();
@@ -30,7 +19,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
+app.UseCors(x => x.AllowAnyHeader());
 app.UseAuthorization();
 
 app.MapControllers();
