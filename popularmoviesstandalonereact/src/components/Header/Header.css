@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Netflix+Sans&display=swap');
+
+/* Existing styles for navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -21,6 +24,69 @@
     font-weight: bold;
 }
 
-.navbar__link.active {
+    .navbar__link.active {
+        color: #e50914;
+    }
+
+/* Common styles for form container */
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 400px;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+.exit-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 6px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+    .exit-button:hover {
+        color: #ff0000;
+    }
+
+/* Common styles for form header */
+.registration-form h2 {
+    margin-bottom: 20px;
+    font-family: 'Netflix Sans', Arial, sans-serif;
+    font-size: 24px;
     color: #e50914;
 }
+
+/* Common styles for form input fields */
+.registration-form input {
+    width: 75%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #ffcccc;
+}
+
+/* Common styles for form submit button */
+.registration-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e50914;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .registration-form button:hover {
+        background-color: #b2070a;
+    }
