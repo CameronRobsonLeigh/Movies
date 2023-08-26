@@ -1,6 +1,5 @@
 ﻿using Catalog.Api.Models;
 using Catalog.Api.Services;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -17,7 +16,6 @@ namespace Catalog.Api.Controllers
             _movieService = movieService;
         }
 
-        [EnableCors("MyPolicy")]
         [HttpGet("popular")]
         public async Task<IActionResult> GetPopularMovies() 
         { 
