@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Login.Service.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,15 +10,28 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<UserServiceContext>(options =>
+         options.UseSqlite(@"Data Source=C:\Users\Camer\source\repos\Movies\RegistrationService\user.db"));
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var userServiceContext = services.GetRequiredService<UserServiceContext>();
+
+    // Ensure the database is created.
+    userServiceContext.Database.EnsureCreated();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 
+}
+app.UseCors(x => x.AllowAnyHeader());
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
