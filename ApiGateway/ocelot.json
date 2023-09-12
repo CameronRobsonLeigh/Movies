@@ -1,0 +1,22 @@
+{
+  "Routes": [
+    // Get
+    {
+      "UpstreamPathTemplate": "/api/popular",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "mostpopularmovies",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/popular",
+      "RouteIsCaseSensitive": false
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8001",
+    "SkipSslValidation": true
+  }
+}

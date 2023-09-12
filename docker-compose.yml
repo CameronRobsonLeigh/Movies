@@ -1,0 +1,25 @@
+version: '3.4'
+
+networks:
+    myNetwork:
+
+services:
+  apigateway:
+    container_name: api-gateway
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway\Dockerfile
+    ports:
+        - 8001:80
+    networks:
+      - myNetwork
+
+  catalog.api:
+    container_name: mostpopularmovies
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: Catalog.Api/Dockerfile
+    networks:
+      - myNetwork
