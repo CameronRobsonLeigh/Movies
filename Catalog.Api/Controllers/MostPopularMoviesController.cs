@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace Catalog.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api")]
     public class MostPopularMoviesController : ControllerBase
     {
         private readonly MostPopularMoviesService _movieService;
@@ -18,7 +18,7 @@ namespace Catalog.Api.Controllers
 
         [HttpGet("popular")]
         public async Task<IActionResult> GetPopularMovies() 
-        { 
+        {
             var response = await _movieService.PopularMoviesService();
 
             if (response.IsSuccessStatusCode)
