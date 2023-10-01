@@ -23,3 +23,10 @@ services:
       dockerfile: Catalog.Api/Dockerfile
     networks:
       - myNetwork
+
+  frontend.react:
+    image: ${DOCKER_REGISTRY-}frontendreact
+    build:
+      context: .
+      dockerfile: Frontend.React/Dockerfile
+
