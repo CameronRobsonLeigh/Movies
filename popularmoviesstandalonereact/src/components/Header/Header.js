@@ -44,12 +44,10 @@ function Header() {
             } catch (error) {
                 console.error('Error With Registration service:', error);
             }
-        } else {
-            // Logic for handling login submission
+        } else {       
+            const response = await axios.post('https://localhost:44393/verifyUser', formData);
+            console.log('Registration Successful:', response);
         }
-
-        console.log(showLoginForm);
-        
 
         // Hide the registration and login forms
         setShowRegistrationForm(false);

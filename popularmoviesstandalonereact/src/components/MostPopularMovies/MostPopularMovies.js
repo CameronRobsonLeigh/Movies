@@ -8,7 +8,7 @@ function GrabCatalogApiService() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://localhost:44386/MostPopularMovies/popular');
+                const response = await axios.get('https://localhost:44386/api/popular');
                 setCatalogData(response.data.results);
                 console.log(response.data.results);
             } catch (error) {
