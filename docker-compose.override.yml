@@ -13,9 +13,4 @@ services:
     ports:
       - "80"
 
-  frontend.react:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "80"
 
