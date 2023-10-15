@@ -1,22 +1,17 @@
-version: '3'
+name: Super-Linter
 
-services:
-  super-linter:
-    image: github/super-linter:latest
-    container_name: super-linter
-    environment:
-      - RUN_LOCAL=true
+on: push
 
 jobs:
-  lint:
+  super-lint:
+    name: Lint code base
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Run Super-Linter
-        uses: docker://github/super-linter:latest
-        with:
-          args: |
-            --validate-attempt 1
-            --validate-config-file
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
