@@ -17,7 +17,7 @@ namespace Catalog.Api.Controllers
         }
 
         [HttpGet("popular")]
-        public async Task<IActionResult> GetPopularMovies() 
+        public async Task<IActionResult> GetPopularMovies()
         {
             var response = await _movieService.PopularMoviesService();
 
@@ -25,7 +25,6 @@ namespace Catalog.Api.Controllers
             {
                 var readMovies = await response.Content.ReadAsStringAsync();
                 var mostPopularMovies = JsonConvert.DeserializeObject<MostPopularMovies.Rootobject>(readMovies);
-
 
                 return Ok(mostPopularMovies);
             }
