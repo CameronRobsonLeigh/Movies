@@ -5,12 +5,6 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Api", "Catalog.Api\Catalog.Api.csproj", "{C345ED27-4ADF-4FC8-B636-76D88C94B254}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Catalog.Api.React", "PopularMoviesStandaloneReact\Catalog.Api.React.esproj", "{74BD781C-1C82-4579-840A-A6DBDA8D0F29}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9025A4D6-5992-48CD-9F51-F32D2D4CA94C} = {9025A4D6-5992-48CD-9F51-F32D2D4CA94C}
-		{C345ED27-4ADF-4FC8-B636-76D88C94B254} = {C345ED27-4ADF-4FC8-B636-76D88C94B254}
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Registration.Service", "RegistrationService\Registration.Service.csproj", "{9025A4D6-5992-48CD-9F51-F32D2D4CA94C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login.Service", "Login.Service\Login.Service.csproj", "{E27D2156-70C1-47D5-AC8E-5E18E275368A}"
@@ -29,12 +23,6 @@ Global
 		{C345ED27-4ADF-4FC8-B636-76D88C94B254}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C345ED27-4ADF-4FC8-B636-76D88C94B254}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C345ED27-4ADF-4FC8-B636-76D88C94B254}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74BD781C-1C82-4579-840A-A6DBDA8D0F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74BD781C-1C82-4579-840A-A6DBDA8D0F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74BD781C-1C82-4579-840A-A6DBDA8D0F29}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{74BD781C-1C82-4579-840A-A6DBDA8D0F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74BD781C-1C82-4579-840A-A6DBDA8D0F29}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74BD781C-1C82-4579-840A-A6DBDA8D0F29}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{9025A4D6-5992-48CD-9F51-F32D2D4CA94C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9025A4D6-5992-48CD-9F51-F32D2D4CA94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9025A4D6-5992-48CD-9F51-F32D2D4CA94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
