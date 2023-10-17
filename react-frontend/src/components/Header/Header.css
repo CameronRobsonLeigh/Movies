@@ -24,9 +24,9 @@
     font-weight: bold;
 }
 
-    .navbar__link.active {
-        color: #e50914;
-    }
+.navbar__link.active {
+    color: #e50914;
+}
 
 /* Common styles for form container */
 .form-container {
@@ -55,9 +55,9 @@
     font-size: 18px;
 }
 
-    .exit-button:hover {
-        color: #ff0000;
-    }
+.exit-button:hover {
+    color: #ff0000;
+}
 
 /* Common styles for form header */
 .registration-form h2 {
@@ -87,6 +87,6 @@
     cursor: pointer;
 }
 
-    .registration-form button:hover {
-        background-color: #b2070a;
-    }
+.registration-form button:hover {
+    background-color: #b2070a;
+}
