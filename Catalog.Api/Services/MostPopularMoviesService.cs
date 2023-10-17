@@ -1,6 +1,5 @@
 ﻿namespace Catalog.Api.Services
 {
-
     public class MostPopularMoviesService
     {
         private readonly HttpClient _httpClient;
