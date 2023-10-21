@@ -1,11 +1,11 @@
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Netflix+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Netflix+Sans&display=swap");
 
 /* Styles for the navbar */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space between;
   background-color: #000;
   padding: 20px;
 }
@@ -36,7 +36,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
-  background-color: rgba(0, 0, 0, 80%);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 400px;
   padding: 40px;
   border-radius: 8px;
@@ -63,7 +63,7 @@
 /* Common styles for the form header */
 .registration-form h2 {
   margin-bottom: 20px;
-  font-family: 'Netflix Sans', Arial, sans-serif;
+  font-family: "Netflix Sans", Arial, sans-serif;
   font-size: 24px;
   color: #e50914;
 }
