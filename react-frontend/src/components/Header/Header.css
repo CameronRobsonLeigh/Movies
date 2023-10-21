@@ -31,19 +31,19 @@
 
 /* Common styles for the form container */
 .form-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 400px;
-  padding: 40px;
-  border-radius: 8px;
-  text-align: center;
-  color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 80%); 
+    width: 400px;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
 }
-
+  
 .exit-button {
   position: absolute;
   top: 10px;
