@@ -10,22 +10,22 @@
   padding: 20px;
 }
 
-.navbar__logo img {
+.navbar-logo img {
   height: 40px;
 }
 
-.navbar__links {
+.navbar-links {
   display: flex;
 }
 
-.navbar__link {
+.navbar-link {
   color: #fff;
   margin-right: 15px;
   text-decoration: none;
   font-weight: bold;
 }
 
-.navbar__link.active {
+.navbar-link.active {
   color: #e50914;
 }
 
@@ -36,7 +36,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 80%);
   width: 400px;
   padding: 40px;
   border-radius: 8px;
@@ -57,7 +57,7 @@
 }
 
 .exit-button:hover {
-  color: #ff0000;
+  color: #f00;
 }
 
 /* Common styles for the form header */
@@ -74,7 +74,7 @@
   margin-bottom: 20px;
   padding: 12px;
   border-radius: 4px;
-  border: 1px solid #ffcccc;
+  border: 1px solid #fcc;
 }
 
 /* Common styles for the form submit button */
