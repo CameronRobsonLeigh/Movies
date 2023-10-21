@@ -1,10 +1,6 @@
 name: Super-Linter
 
-on: 
-  push:
-    paths-ignore:
-    - 'C:\Users\Camer\source\repos\Movies\react-frontend\src'
-    
+on: push
 
 jobs:
   super-lint:
@@ -19,3 +15,4 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG_FILE: .super-lint.yml # Use the custom configuration file
