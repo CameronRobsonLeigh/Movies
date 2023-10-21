@@ -1,6 +1,5 @@
 {
   "Routes": [
-    // Get
     {
       "UpstreamPathTemplate": "/api/popular",
       "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
@@ -12,6 +11,19 @@
         }
       ],
       "DownstreamPathTemplate": "/api/popular",
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "UpstreamPathTemplate": "/adduser",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userregistration",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/adduser",
       "RouteIsCaseSensitive": false
     }
   ],
