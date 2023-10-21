@@ -1,6 +1,10 @@
 name: Super-Linter
 
-on: push
+on: 
+  push:
+    paths-ignore:
+    - 'C:\Users\Camer\source\repos\Movies\react-frontend\src'
+    
 
 jobs:
   super-lint:
