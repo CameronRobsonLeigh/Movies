@@ -1,7 +1,5 @@
 name: Super-Linter
-
 on: push
-
 jobs:
   super-lint:
     name: Lint code base
@@ -9,13 +7,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Run Super-Linter
         uses: github/super-linter@v5
         env:
-          VALIDATE_CSS:	false
+          VALIDATE_CSS: false
           VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_JAVASCRIPT_ES: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
