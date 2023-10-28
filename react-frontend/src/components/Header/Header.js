@@ -38,14 +38,14 @@ function Header() {
 
         if (showRegistrationForm) {
             try {
-                const response = await axios.post('https://localhost:44344/adduser', formData);
+                const response = await axios.post('https://localhost:8001/adduser', formData);
                 // Handle the response, e.g., show a success message or update UI
                 console.log('Registration Successful:', response.data);
             } catch (error) {
                 console.error('Error With Registration service:', error);
             }
         } else {       
-            const response = await axios.post('https://localhost:44393/verifyUser', formData);
+            const response = await axios.post('https://localhost:8001/verifyUser', formData);
             console.log('Registration Successful:', response);
         }
 
