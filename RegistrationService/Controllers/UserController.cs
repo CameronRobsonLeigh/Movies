@@ -5,8 +5,8 @@ using RegistrationService.Models;
 
 namespace RegistrationService.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("/api")]
     public class UserController : ControllerBase
     {
         private readonly UserServiceContext _context;
