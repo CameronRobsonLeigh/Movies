@@ -6,7 +6,9 @@
       "serviceActions": {
         "apigateway": "StartDebugging",
         "catalog.api": "StartDebugging",
-        "frontend.react": "StartDebugging"
+        "frontend.react": "StartDebugging",
+        "registration.service": "StartDebugging",
+        "login.service": "StartDebugging"
       }
     }
   }

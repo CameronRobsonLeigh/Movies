@@ -5,6 +5,16 @@ networks:
     driver: bridge
 
 services:
+  app:
+    container_name: react.frontend-c
+    image: react.frontend-i  
+    build:
+      context: C:\Users\Camer\source\repos\Movies\react-frontend
+    ports:
+        - 8080:80
+    networks:
+      - myNetwork
+
   apigateway:
     container_name: apigateway
     image: ${DOCKER_REGISTRY-}apigateway
@@ -25,15 +35,21 @@ services:
     networks:
       - myNetwork
 
-  app:
-    container_name: react.frontend-c
-    image: react.frontend-i  
+  registration.service:
+    container_name: userregistration
+    image: ${DOCKER_REGISTRY-}registrationservice
     build:
-      context: C:\Users\Camer\source\repos\Movies\react-frontend
-    ports:
-      - "8080:80" 
+      context: .
+      dockerfile: RegistrationService/Dockerfile
+    networks:
+      - myNetwork
 
-
-
-
+  login.service:
+    container_name: loginservice
+    image: ${DOCKER_REGISTRY-}loginservice
+    build:
+      context: .
+      dockerfile: Login.Service/Dockerfile
+    networks:
+      - myNetwork
 
