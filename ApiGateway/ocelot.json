@@ -25,6 +25,19 @@
       ],
       "DownstreamPathTemplate": "/adduser",
       "RouteIsCaseSensitive": false
+    },
+    {
+      "UpstreamPathTemplate": "/verifyUser",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "loginservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/verifyUser",
+      "RouteIsCaseSensitive": false
     }
   ],
   "GlobalConfiguration": {
