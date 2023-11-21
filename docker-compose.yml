@@ -9,7 +9,7 @@ services:
     container_name: react.frontend-c
     image: react.frontend-i  
     build:
-      context: C:\Users\Camer\source\repos\Movies\react-frontend
+      context: react-frontend
     ports:
         - 8080:80
     networks:
