@@ -38,8 +38,7 @@ services:
     container_name: userregistration
     image: ${DOCKER_REGISTRY-}registrationservice
     build:
-      context: .
-      dockerfile: RegistrationService/Dockerfile
+      context: RegistrationService
     networks:
       - myNetwork
 
@@ -47,8 +46,7 @@ services:
     container_name: loginservice
     image: ${DOCKER_REGISTRY-}loginservice
     build:
-      context: .
-      dockerfile: Login.Service/Dockerfile
+      context: Login.Service
     networks:
       - myNetwork
 
