@@ -11,8 +11,18 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: DockerCompose@0
+  displayName: 'Build Docker Images'
+  inputs:
+    azureSubscriptionEndpoint: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
+    azureContainerRegistry: 'aksdevregistrycam.azurecr.io'
+    dockerComposeFile: '$(Build.SourcesDirectory)/Movies/blob/master/docker-compose.yml'
+    action: 'Build services'
+    additionalImageTags: 'latest'
+
 - task: AzureCLI@2
-  displayName: 'Build and Push Docker Images to ACR'
+  displayName: 'Push Docker Images to ACR'
   inputs:
     azureSubscription: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
     scriptType: 'bash'
@@ -24,16 +34,13 @@ steps:
       # Set the Azure Container Registry name
       ACR_NAME=aksdevregistrycam
 
-      # Build and push each service defined in Docker Compose
+      # Define services to push
       SERVICES=("app" "apigateway" "catalog.api" "registration.service" "login.service")
 
+      # Log in to Azure Container Registry
+      az acr login --name $ACR_NAME
+
       for SERVICE in "${SERVICES[@]}"; do
-        # Build the Docker image for the service
-        docker-compose -f $(Build.SourcesDirectory)/Movies/blob/master/docker-compose.yml build $SERVICE
-
-        # Log in to Azure Container Registry
-        az acr login --name $ACR_NAME
-
         # Tag the Docker image with the ACR URL
         IMAGE_NAME=$ACR_NAME.azurecr.io/$SERVICE
         docker tag $SERVICE:latest $IMAGE_NAME
@@ -42,9 +49,8 @@ steps:
         docker push $IMAGE_NAME
       done
 
-
-
 - script: cat .azdo/deploy-ci/app-deploy.yaml
+
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
