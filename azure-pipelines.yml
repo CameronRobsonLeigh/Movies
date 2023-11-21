@@ -17,7 +17,7 @@ steps:
   inputs:
     azureSubscriptionEndpoint: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
     azureContainerRegistry: 'aksdevregistrycam.azurecr.io'
-    dockerComposeFile: '$(Build.SourcesDirectory)/Movies/blob/master/docker-compose.yml'
+    dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yml'
     action: 'Build services'
     additionalImageTags: 'latest'
 
