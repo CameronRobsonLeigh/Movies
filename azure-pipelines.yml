@@ -29,7 +29,7 @@ steps:
 
       for SERVICE in "${SERVICES[@]}"; do
         # Build the Docker image for the service
-        docker-compose -f https://github.com/CameronRobsonLeigh/Movies/blob/master/docker-compose.yml build $SERVICE
+        docker-compose -f https://raw.githubusercontent.com/CameronRobsonLeigh/Movies/blob/master/docker-compose.yml build $SERVICE
 
         # Log in to Azure Container Registry
         az acr login --name $ACR_NAME
