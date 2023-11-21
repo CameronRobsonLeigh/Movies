@@ -19,7 +19,8 @@ services:
     container_name: apigateway
     image: ${DOCKER_REGISTRY-}apigateway
     build:
-      context: ApiGateway
+      context: .
+      dockerfile: ApiGateway\Dockerfile
     ports:
         - 8001:80
     networks:
@@ -38,7 +39,8 @@ services:
     container_name: userregistration
     image: ${DOCKER_REGISTRY-}registrationservice
     build:
-      context: RegistrationService
+      context: .
+      dockerfile: RegistrationService/Dockerfile
     networks:
       - myNetwork
 
@@ -46,7 +48,8 @@ services:
     container_name: loginservice
     image: ${DOCKER_REGISTRY-}loginservice
     build:
-      context: Login.Service
+      context: .
+      dockerfile: Login.Service/Dockerfile
     networks:
       - myNetwork
 
