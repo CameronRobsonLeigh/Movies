@@ -14,12 +14,12 @@ COPY ["RegistrationService/Registration.Service.csproj", "RegistrationService/"]
 RUN dotnet restore "RegistrationService/Registration.Service.csproj"
 COPY . .
 WORKDIR "/src/RegistrationService"
-RUN dotnet build "RegistrationService.csproj" -c Release -o /app/build
+RUN dotnet build "Registration.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "RegistrationService.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Registration.Service.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "RegistrationService.dll"]
+ENTRYPOINT ["dotnet", "Registration.Service.dll"]
