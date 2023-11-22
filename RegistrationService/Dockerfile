@@ -10,7 +10,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["RegistrationService/RegistrationService.csproj", "RegistrationService/"]
+COPY ["src/RegistrationService/RegistrationService.csproj", "/src/RegistrationService/"]
 RUN dotnet restore "RegistrationService/RegistrationService.csproj"
 COPY . .
 WORKDIR "/src/RegistrationService"
