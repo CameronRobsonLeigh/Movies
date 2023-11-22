@@ -35,11 +35,11 @@ steps:
       ACR_NAME=aksdevregistrycam
 
       # Define services to push
-      SERVICES=("react.frontend-c" "loginservice" "mostpopularmovies" "apigateway" "userregistration")
+      SERVICES=("react.frontend-i" "loginservice" "catalogapi" "apigateway" "registrationservice")
 
       for SERVICE in "${SERVICES[@]}"; do
         # Tag the Docker image with the ACR URL
-        docker tag $SERVICE $ACR_NAME/$SERVICE:latest
+        docker tag loginservice $ACR_NAME.azurecr.io/$SERVICE:latest
 
         IMAGE_NAME=$ACR_NAME.azurecr.io/$SERVICE:latest
 
