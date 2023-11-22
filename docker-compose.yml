@@ -20,7 +20,7 @@ services:
     image: ${DOCKER_REGISTRY-}apigateway
     build:
       context: .
-      dockerfile: ApiGateway/Dockerfile
+      dockerfile: ./ApiGateway/Dockerfile
     ports:
         - 8001:80
     networks:
@@ -31,7 +31,7 @@ services:
     image: ${DOCKER_REGISTRY-}catalogapi
     build:
       context: .
-      dockerfile: Catalog.Api/Dockerfile
+      dockerfile: ./Catalog.Api/Dockerfile
     networks:
       - myNetwork
 
@@ -40,7 +40,7 @@ services:
     image: ${DOCKER_REGISTRY-}registrationservice
     build:
       context: .
-      dockerfile: RegistrationService/Dockerfile
+      dockerfile: ./RegistrationService/Dockerfile
     networks:
       - myNetwork
 
@@ -49,7 +49,7 @@ services:
     image: ${DOCKER_REGISTRY-}loginservice
     build:
       context: .
-      dockerfile: Login.Service/Dockerfile
+      dockerfile: ./Login.Service/Dockerfile
     networks:
       - myNetwork
 
