@@ -35,15 +35,13 @@ steps:
       ACR_NAME=aksdevregistrycam
 
       # Define services to push
-      SERVICES=("app" "apigateway" "catalog.api" "registration.service" "login.service")
-
-      # Log in to Azure Container Registry
-      az acr login --name $ACR_NAME
+      SERVICES=("react.frontend-c" "loginservice" "mostpopularmovies" "apigateway" "userregistration")
 
       for SERVICE in "${SERVICES[@]}"; do
         # Tag the Docker image with the ACR URL
+        docker tag $SERVICE $ACR_NAME/$SERVICE:latest
+
         IMAGE_NAME=$ACR_NAME.azurecr.io/$SERVICE:latest
-        docker tag $SERVICE:latest $IMAGE_NAME
 
         # Push the Docker image to Azure Container Registry
         docker push $IMAGE_NAME
