@@ -11,19 +11,9 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: DockerCompose@0
-  displayName: 'Build Docker Images'
-  inputs:
-    azureSubscriptionEndpoint: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
-    azureContainerRegistry: 'aksdevregistrycam.azurecr.io'
-    dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yml'
-    action: 'Build services'
-    additionalImageTags: 'latest'
-
-
 # any change happen on main branch will trigger the pipeline.
 - task: DockerCompose@0
-  displayName: 'Build Docker image 2'
+  displayName: 'Build Docker images'
   inputs:
     containerregistrytype: 'Azure Container Registry'
     azureSubscription: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
@@ -31,6 +21,7 @@ steps:
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Build services'
     includeLatestTag: true
+
 
 
 - task: AzureCLI@2
