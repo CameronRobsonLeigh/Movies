@@ -21,8 +21,13 @@ steps:
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Build services'
     includeLatestTag: true
-
-
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
+    azureContainerRegistry: '{"loginServer":"aksdevregistrycam.azurecr.io", "id" : "/subscriptions/67336b9e-4aa9-4fe1-939b-d5d2efde661f/resourceGroups/AKS-DEV/providers/Microsoft.ContainerRegistry/registries/AKSDEVRegistryCam"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Push services'
 
 - task: AzureCLI@2
   displayName: 'Push Docker Images to ACR'
