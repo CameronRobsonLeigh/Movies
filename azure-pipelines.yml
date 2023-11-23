@@ -20,7 +20,7 @@ steps:
     azureContainerRegistry: '{"loginServer":"aksdevregistrycam.azurecr.io", "id" : "/subscriptions/67336b9e-4aa9-4fe1-939b-d5d2efde661f/resourceGroups/AKS-DEV/providers/Microsoft.ContainerRegistry/registries/AKSDEVRegistryCam"}'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Build services'
-    includeLatestTag: true
+
 - task: DockerCompose@0
   displayName: 'Push Docker images'
   inputs:
