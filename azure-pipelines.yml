@@ -22,40 +22,13 @@ steps:
     action: 'Build services'
     includeLatestTag: true
 - task: DockerCompose@0
+  displayName: 'Push Docker images'
   inputs:
     containerregistrytype: 'Azure Container Registry'
     azureSubscription: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
     azureContainerRegistry: '{"loginServer":"aksdevregistrycam.azurecr.io", "id" : "/subscriptions/67336b9e-4aa9-4fe1-939b-d5d2efde661f/resourceGroups/AKS-DEV/providers/Microsoft.ContainerRegistry/registries/AKSDEVRegistryCam"}'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Push services'
-
-- task: AzureCLI@2
-  displayName: 'Push Docker Images to ACR'
-  inputs:
-    azureSubscription: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      # Log in to Azure
-      az login
-
-      # Set the Azure Container Registry name
-      ACR_NAME=aksdevregistrycam
-
-      # Define services to push
-      SERVICES=("react.frontend-i" "loginservice" "catalogapi" "apigateway" "registrationservice")
-
-      for SERVICE in "${SERVICES[@]}"; do
-        # Tag the Docker image with the ACR URL
-        docker tag loginservice $ACR_NAME.azurecr.io/$SERVICE:latest
-
-        IMAGE_NAME=$ACR_NAME.azurecr.io/$SERVICE:latest
-
-        # Push the Docker image to Azure Container Registry
-        docker push $IMAGE_NAME
-      done
-
-#- script: cat .azdo/deploy-ci/app-deploy.yaml
 
 - task: Kubernetes@1
   inputs:
