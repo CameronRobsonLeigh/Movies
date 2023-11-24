@@ -6,11 +6,6 @@ pool:
 
 steps:
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
 # any change happen on main branch will trigger the pipeline.
 - task: DockerCompose@0
   displayName: 'Build Docker images'
@@ -30,19 +25,16 @@ steps:
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Push services'
     includeLatestTag: false
-
-- task: Kubernetes@1
+    
+- task: CopyFiles@2
+  displayName: 'Copy Files to Temporary Staging Artifact'
   inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
-    azureResourceGroup: 'AKS-DEV'
-    kubernetesCluster: 'AKS-DEV'
-    namespace: 'default'
-    command: 'apply'
-    useConfigurationFile: true
-    configuration: '.azdo/deploy-ci'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
-    azureSubscriptionEndpointForSecrets: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
-    azureContainerRegistry: 'aksdevregistrycam.azurecr.io'
-    forceUpdate: false
+    Contents: 'aks-deployment.yml'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Build Artifacts'
+  inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
