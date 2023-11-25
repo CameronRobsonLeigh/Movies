@@ -16,9 +16,25 @@ spec:
       - name: front-end-react
         image: aksdevregistrycam.azurecr.io/react.frontend-i:latest  # Use any desired container image
         ports:
-        - containerPort: 80  # Port the container will listen on
+        - containerPort: 5000  # Port the container will listen on
       imagePullSecrets:
       - name: regcred
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end
+  labels:
+    app: front-end
+spec:
+  selector:
+    app: front-end
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+    protocol: TCP
+  type: LoadBalancer
 
 
