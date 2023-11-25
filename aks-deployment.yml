@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: movies-app
+  name: movies-deployment
 spec:
-  replicas: 3  # Number of desired replicas
+  replicas: 2  # Number of desired replicas
   selector:
     matchLabels:
       app: front-end
@@ -16,18 +16,4 @@ spec:
       - name: front-end-react
         image: aksdevregistrycam.azurecr.io/react.frontend-i  # Use any desired container image
         ports:
-        - containerPort: 80  # Port the container will listen on
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: front-end-svc
-spec:
-  selector:
-    app: front-end
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
+        - containerPort: 5000  # Port the container will listen on
