@@ -27,7 +27,7 @@ metadata:
   name: load-balancer
 spec:
   selector:
-    app: load-balancer
+    app: front-end
   ports:
     - protocol: TCP
       port: 5000
