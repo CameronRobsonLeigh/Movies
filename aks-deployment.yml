@@ -20,7 +20,54 @@ spec:
       imagePullSecrets:
       - name: regcred
 
----
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway
+spec:
+  replicas: 1  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: apigateway
+  template:
+    metadata:
+      labels:
+        app: apigateway
+    spec:
+      containers:
+      - name: apigateway-cotnainer
+        image: aksdevregistrycam.azurecr.io/apigateway:latest  # Use any desired container image
+        ports:
+        - containerPort: 80  # Port the container will listen on
+      imagePullSecrets:
+      - name: regcred
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogapi
+spec:
+  replicas: 1  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: catalogapi
+  template:
+    metadata:
+      labels:
+        app: catalogapi
+    spec:
+      containers:
+      - name: catalogapi-container
+        image: aksdevregistrycam.azurecr.io/catalogapi:latest  # Use any desired container image
+        ports:
+        - containerPort: 80  # Port the container will listen on
+      imagePullSecrets:
+      - name: regcred
+
+
+
 apiVersion: v1
 kind: Service
 metadata:
