@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front-end
+  name: Deployment
 spec:
   replicas: 1  # Number of desired replicas
   selector:
@@ -20,11 +20,6 @@ spec:
       imagePullSecrets:
       - name: regcred
 
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: apigateway
 spec:
   replicas: 1  # Number of desired replicas
   selector:
@@ -44,10 +39,6 @@ spec:
       - name: regcred
 
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: catalogapi
 spec:
   replicas: 1  # Number of desired replicas
   selector:
