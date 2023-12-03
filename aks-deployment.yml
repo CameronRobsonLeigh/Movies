@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Deployment
+  name: front-end
 spec:
-  replicas: 1  # Number of desired replicas
+  replicas: 1
   selector:
     matchLabels:
       app: front-end
@@ -14,14 +14,20 @@ spec:
     spec:
       containers:
       - name: front-end-react
-        image: aksdevregistrycam.azurecr.io/react.frontend-i:latest  # Use any desired container image
+        image: aksdevregistrycam.azurecr.io/react.frontend-i:latest
         ports:
-        - containerPort: 80  # Port the container will listen on
+        - containerPort: 80
       imagePullSecrets:
       - name: regcred
 
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway
 spec:
-  replicas: 1  # Number of desired replicas
+  replicas: 1
   selector:
     matchLabels:
       app: apigateway
@@ -31,16 +37,21 @@ spec:
         app: apigateway
     spec:
       containers:
-      - name: apigateway-cotnainer
-        image: aksdevregistrycam.azurecr.io/apigateway:latest  # Use any desired container image
+      - name: apigateway-container
+        image: aksdevregistrycam.azurecr.io/apigateway:latest
         ports:
-        - containerPort: 80  # Port the container will listen on
+        - containerPort: 80
       imagePullSecrets:
       - name: regcred
 
+---
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogapi
 spec:
-  replicas: 1  # Number of desired replicas
+  replicas: 1
   selector:
     matchLabels:
       app: catalogapi
@@ -51,13 +62,13 @@ spec:
     spec:
       containers:
       - name: catalogapi-container
-        image: aksdevregistrycam.azurecr.io/catalogapi:latest  # Use any desired container image
+        image: aksdevregistrycam.azurecr.io/catalogapi:latest
         ports:
-        - containerPort: 80  # Port the container will listen on
+        - containerPort: 80
       imagePullSecrets:
       - name: regcred
 
-
+---
 
 apiVersion: v1
 kind: Service
@@ -71,5 +82,3 @@ spec:
       port: 80
       targetPort: 80
   type: LoadBalancer
-
-
