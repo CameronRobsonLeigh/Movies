@@ -40,7 +40,7 @@ spec:
       - name: apigateway-container
         image: aksdevregistrycam.azurecr.io/apigateway:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8001
       imagePullSecrets:
       - name: regcred
 
