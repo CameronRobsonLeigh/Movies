@@ -4,11 +4,24 @@ import './MostPopularMovies.css'; // Import the CSS file
 
 function GrabCatalogApiService() {
     const [catalogData, setCatalogData] = useState([]);
+    var apiGatewayUrl = "";
+
+    if (process.env.NODE_ENV === 'development') {
+        // Code specific to development environment
+        console.log('Development Mode');
+        apiGatewayUrl = 'http://localhost:8001/api/popular';
+      } else {
+        // Code specific to production environment
+        console.log('Production Mode');
+        apiGatewayUrl = 'api/popular';
+      }
+      
+
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/popular');
+                const response = await axios.get(apiGatewayUrl);
                 setCatalogData(response.data.results);
                 console.log(response.data.results);
             } catch (error) {

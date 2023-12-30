@@ -10,8 +10,6 @@ services:
     image: react.frontend-i  
     build:
       context: react-frontend
-    ports:
-        - 8080:80
     networks:
       - myNetwork
 
@@ -22,7 +20,7 @@ services:
       context: .
       dockerfile: ./ApiGateway/Dockerfile
     ports:
-        - 8001:80
+      - 8001:80
     networks:
       - myNetwork
 
