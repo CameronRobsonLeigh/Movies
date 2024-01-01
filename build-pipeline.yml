@@ -1,0 +1,40 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+# any change happen on main branch will trigger the pipeline.
+- task: DockerCompose@0
+  displayName: 'Build Docker images'
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
+    azureContainerRegistry: '{"loginServer":"aksdevregistrycam.azurecr.io", "id" : "/subscriptions/67336b9e-4aa9-4fe1-939b-d5d2efde661f/resourceGroups/AKS-DEV/providers/Microsoft.ContainerRegistry/registries/AKSDEVRegistryCam"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Build services'
+
+- task: DockerCompose@0
+  displayName: 'Push Docker images'
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Azure subscription 1 (67336b9e-4aa9-4fe1-939b-d5d2efde661f)'
+    azureContainerRegistry: '{"loginServer":"aksdevregistrycam.azurecr.io", "id" : "/subscriptions/67336b9e-4aa9-4fe1-939b-d5d2efde661f/resourceGroups/AKS-DEV/providers/Microsoft.ContainerRegistry/registries/AKSDEVRegistryCam"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Push services'
+    includeLatestTag: false
+    
+- task: CopyFiles@2
+  displayName: 'Copy Files to Temporary Staging Artifact'
+  inputs:
+    Contents: 'aks-deployment.yml'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Build Artifacts'
+  inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
