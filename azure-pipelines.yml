@@ -1,3 +1,5 @@
+name: Build Pipeline
+
 trigger:
 - master
 
@@ -5,8 +7,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
-# any change happen on main branch will trigger the pipeline.
 - task: DockerCompose@0
   displayName: 'Build Docker images'
   inputs:
