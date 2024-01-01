@@ -43,7 +43,7 @@ steps:
   displayName: 'Kubernetes Deploy'
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: aks-dev
+    kubernetesServiceEndpoint: '52.226.203.175:443'
     namespace: 'aks-dev'
     command: 'apply'
     useConfigurationFile: true
