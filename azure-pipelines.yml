@@ -38,3 +38,13 @@ steps:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
+
+- task: Kubernetes@1
+  displayName: 'Kubernetes Deploy'
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    namespace: 'aks-dev'
+    command: 'apply'
+    useConfigurationFile: true
+    configurationType: "configuration"
+    configuration: '$(build.artifactstagingdirectory)/aks-deployment.yml'
