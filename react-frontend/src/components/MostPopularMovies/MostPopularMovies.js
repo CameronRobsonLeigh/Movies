@@ -13,7 +13,7 @@ function GrabCatalogApiService() {
       } else {
         // Code specific to production environment
         console.log('Production Mode2');
-        apiGatewayUrl = '8001:/api/popular';
+        apiGatewayUrl = ':8001/api/popular';
       }
       
 
