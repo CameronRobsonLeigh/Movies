@@ -12,8 +12,8 @@ function GrabCatalogApiService() {
         apiGatewayUrl = 'http://localhost:8001/api/popular';
       } else {
         // Code specific to production environment
-        console.log('Production Mode');
-        apiGatewayUrl = 'api/popular';
+        console.log('Production Mode2');
+        apiGatewayUrl = '8001:/api/popular';
       }
       
 
