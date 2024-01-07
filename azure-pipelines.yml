@@ -49,7 +49,6 @@ steps:
   displayName: Create imagePullSecret
   inputs:
     action: createSecret
-    secretName: 'testSecret'
     namespace: 'default'
     dockerRegistryEndpoint: 'AKSDEVRegistryCam'
     kubernetesServiceConnection: 'AKS-DEV-default'
