@@ -46,11 +46,11 @@ steps:
     downloadPath: '$(Build.ArtifactStagingDirectory)'
 
 - task: KubernetesManifest@0
-  displayName: Create imagePullSecret
+  displayName: Create Image Pull Secret
   inputs:
     action: createSecret
-    secretType: dockerRegistry
-    secretName: foobar
+    secretName: regcred
     dockerRegistryEndpoint: 'AKSDEVRegistryCam'
     kubernetesServiceConnection: 'AKS-DEV-default'
     namespace: 'default'
+
