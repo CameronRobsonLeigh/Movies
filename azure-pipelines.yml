@@ -6,6 +6,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
 steps:
 - task: DockerCompose@0
   displayName: 'Build Docker images'
@@ -39,3 +40,7 @@ steps:
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
+- task: DownloadPipelineArtifact@2
+  inputs:
+    artifactName: 'manifests'
+    downloadPath: '$(Build.ArtifactStagingDirectory)'
