@@ -6,7 +6,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-
 steps:
 - task: DockerCompose@0
   displayName: 'Build Docker images'
@@ -53,3 +52,4 @@ steps:
     secretName: 'testSecret'
     namespace: 'default'
     dockerRegistryEndpoint: 'AKSDEVRegistryCam'
+    kubernetesServiceConnection: 'AKS-DEV-default'
