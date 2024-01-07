@@ -37,11 +37,11 @@ steps:
   displayName: 'Publish Build Artifacts'
   inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'manifest'
+      ArtifactName: 'drop'
       publishLocation: 'Container'
 
 - task: DownloadPipelineArtifact@1
   displayName: 'Download Build Artifacts'
   inputs:
-    artifactName: 'manifest'
+    artifactName: 'drop'
     downloadPath: '$(Build.ArtifactStagingDirectory)'
