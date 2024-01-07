@@ -59,6 +59,7 @@ steps:
   inputs:
     action: deploy
     namespace: 'default'
+    kubernetesServiceConnection: 'AKS-DEV-default'
     manifests: |
       manifests/deployment.yml
       manifests/service.yml
