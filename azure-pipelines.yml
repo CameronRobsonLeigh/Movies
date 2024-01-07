@@ -39,13 +39,3 @@ steps:
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
-- task: Kubernetes@1
-  displayName: 'Kubernetes Deploy'
-  inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: '52.226.203.175:443'
-    namespace: 'aks-dev'
-    command: 'apply'
-    useConfigurationFile: true
-    configurationType: "configuration"
-    configuration: '$(build.artifactstagingdirectory)/aks-deployment.yml'
