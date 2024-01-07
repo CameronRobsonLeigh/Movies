@@ -36,6 +36,33 @@ steps:
   displayName: 'Publish Build Artifacts'
   inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'drop'
+      ArtifactName: 'manifest'
       publishLocation: 'Container'
 
+- task: DownloadPipelineArtifact@2
+  displayName: 'Download Build Artifacts'
+  inputs:
+    artifactName: 'manifest'
+    downloadPath: '$(Build.ArtifactStagingDirectory)'
+
+- task: KubernetesManifest@0
+  displayName: Create Image Pull Secret
+  inputs:
+    action: createSecret
+    secretName: regcred
+    dockerRegistryEndpoint: 'AKSDEVRegistryCam'
+    kubernetesServiceConnection: 'AKS-DEV-default'
+    namespace: 'default'
+
+- task: KubernetesManifest@0
+  displayName: Deploy to Kubernetes cluster
+  inputs:
+    action: deploy
+    namespace: 'default'
+    kubernetesServiceConnection: 'AKS-DEV-default'
+    manifests: |
+      aks-deployment.yml
+    imagePullSecrets: |
+      regcred
+    containers: |
+      AKSDEVRegistryCam/react.frontend-i:latest
