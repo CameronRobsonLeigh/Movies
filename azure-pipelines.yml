@@ -42,5 +42,5 @@ steps:
 
 - task: DownloadPipelineArtifact@2
   inputs:
-    artifactName: 'manifests'
+    artifactName: 'drop'
     downloadPath: '$(Build.ArtifactStagingDirectory)'
