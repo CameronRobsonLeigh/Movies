@@ -49,6 +49,8 @@ steps:
   displayName: Create imagePullSecret
   inputs:
     action: createSecret
-    namespace: 'default'
+    secretType: dockerRegistry
+    secretName: foobar
     dockerRegistryEndpoint: 'AKSDEVRegistryCam'
     kubernetesServiceConnection: 'AKS-DEV-default'
+    namespace: 'default'
