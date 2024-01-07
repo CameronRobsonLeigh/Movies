@@ -52,4 +52,4 @@ steps:
     action: createSecret
     secretName: 'testSecret'
     namespace: 'default'
-    dockerRegistryEndpoint: 'aksdevregistrycam.azurecr.io'
+    dockerRegistryEndpoint: 'AKSDEVRegistryCam'
