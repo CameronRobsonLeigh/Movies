@@ -58,7 +58,7 @@ steps:
   displayName: Deploy to Kubernetes cluster
   inputs:
     action: deploy
-    namespace: 'default'
+    namespace: 'ingress-nginx'
     kubernetesServiceConnection: 'AKS-DEV-default'
     manifests: |
       aks-deployment.yml
@@ -66,3 +66,11 @@ steps:
       regcred
     containers: |
       AKSDEVRegistryCam/react.frontend-i:latest
+
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    namespace: 'ingress-nginx'
+    command: 'rollout'
+    arguments: 'restart deployment apigateway catalogapi front-end ingress-nginx-controller'
