@@ -58,7 +58,7 @@ steps:
   displayName: Deploy to Kubernetes cluster
   inputs:
     action: deploy
-    namespace: 'ingress-nginx'
+    namespace: 'default'
     kubernetesServiceConnection: 'AKS-DEV-default'
     manifests: |
       aks-deployment.yml
