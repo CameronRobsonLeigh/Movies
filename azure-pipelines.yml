@@ -66,3 +66,4 @@ steps:
       regcred
     containers: |
       AKSDEVRegistryCam/react.frontend-i:latest
+
