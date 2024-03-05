@@ -48,24 +48,22 @@ steps:
 - task: KubernetesManifest@0
   displayName: Create Image Pull Secret
   inputs:
-    action: createSecret
-    secretName: regcred
-    dockerRegistryEndpoint: 'AKSDEVRegistryCam'
-    kubernetesServiceConnection: 'AKS-DEV-default'
+    action: 'createSecret'
+    kubernetesServiceConnection: 'AKS-DEV-ingress'
     namespace: 'ingress-nginx'
+    secretType: 'dockerRegistry'
+    secretName: 'regcred'
+    dockerRegistryEndpoint: 'AKSDEVRegistryCam'
 
 - task: KubernetesManifest@0
   displayName: Deploy to Kubernetes cluster
   inputs:
-    action: deploy
+    action: 'deploy'
+    kubernetesServiceConnection: 'AKS-DEV-ingress'
     namespace: 'ingress-nginx'
-    kubernetesServiceConnection: 'AKS-DEV-default'
-    manifests: |
-      aks-deployment.yml
-    imagePullSecrets: |
-      regcred
-    containers: |
-      AKSDEVRegistryCam/react.frontend-i:latest
+    manifests: 'aks-deployment.yml'
+    containers: 'AKSDEVRegistryCam/react.frontend-i:latest'
+    imagePullSecrets: 'regcred'
 
 
 
