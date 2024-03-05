@@ -52,7 +52,7 @@ steps:
     secretName: regcred
     dockerRegistryEndpoint: 'AKSDEVRegistryCam'
     kubernetesServiceConnection: 'AKS-DEV-default'
-    namespace: 'default'
+    namespace: 'ingress-nginx'
 
 - task: KubernetesManifest@0
   displayName: Deploy to Kubernetes cluster
