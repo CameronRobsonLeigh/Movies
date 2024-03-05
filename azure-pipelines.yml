@@ -65,5 +65,10 @@ steps:
     containers: 'AKSDEVRegistryCam/react.frontend-i:latest'
     imagePullSecrets: 'regcred'
 
-
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    namespace: 'ingress-nginx'
+    command: 'rollout'
+    arguments: 'restart apigateway catalogapi front-end ingress-nginx-controller'
 
