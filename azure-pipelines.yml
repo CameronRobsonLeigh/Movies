@@ -68,7 +68,10 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'AKS-DEV-ingress'
     namespace: 'ingress-nginx'
     command: 'rollout'
     arguments: 'restart apigateway catalogapi front-end ingress-nginx-controller'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
 
