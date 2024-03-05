@@ -52,13 +52,13 @@ steps:
     secretName: regcred
     dockerRegistryEndpoint: 'AKSDEVRegistryCam'
     kubernetesServiceConnection: 'AKS-DEV-default'
-    namespace: 'default'
+    namespace: 'ingress-nginx'
 
 - task: KubernetesManifest@0
   displayName: Deploy to Kubernetes cluster
   inputs:
     action: deploy
-    namespace: 'default'
+    namespace: 'ingress-nginx'
     kubernetesServiceConnection: 'AKS-DEV-default'
     manifests: |
       aks-deployment.yml
@@ -66,4 +66,6 @@ steps:
       regcred
     containers: |
       AKSDEVRegistryCam/react.frontend-i:latest
+
+
 
