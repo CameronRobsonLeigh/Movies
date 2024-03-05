@@ -67,32 +67,15 @@ spec:
         - containerPort: 80
       imagePullSecrets:
       - name: regcred
-
+      
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: load-balancer
+  name: front-end
 spec:
+  type: ClusterIP
+  ports:
+  - port: 80
   selector:
     app: front-end
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
-
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: apigateway-service
-spec:
-  selector:
-    app: apigateway
-  ports:
-    - protocol: TCP
-      port: 8001
-      targetPort: 8001
