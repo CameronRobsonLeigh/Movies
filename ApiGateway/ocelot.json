@@ -6,7 +6,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mostpopularmovies",
+          "Host": "catalogapi",
           "Port": 80
         }
       ],
