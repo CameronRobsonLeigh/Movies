@@ -49,7 +49,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalogapi
+  name: mostpopularmovies
 spec:
   replicas: 1
   selector:
