@@ -61,7 +61,7 @@ steps:
     kubernetesServiceEndpoint: 'AKS-DEV-ingress'
     namespace: 'ingress-nginx'
     command: 'rollout'
-    arguments: 'restart Deployment/apigateway Deployment/mostpopularmovies Deployment/front-end Deployment/ingress-nginx-controller'
+    arguments: 'restart Deployment/apigateway Deployment/catalogapi Deployment/front-end Deployment/ingress-nginx-controller'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
 
