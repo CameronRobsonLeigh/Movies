@@ -5,6 +5,10 @@ metadata:
   name: deployment-ingress
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - 52.226.2.60
+      secretName: selfsigned-cert-tls
   rules:
     - http:
         paths:
@@ -22,3 +26,8 @@ spec:
                 name: apigateway
                 port:
                   number: 80                  
+
+
+
+
+
