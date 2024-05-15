@@ -56,6 +56,7 @@ steps:
     imagePullSecrets: 'regcred'
 
 - task: Kubernetes@1
+  displayName: Restart Pods
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'AKS-DEV-ingress'
