@@ -1,5 +1,5 @@
 Web Application set up to demonstrate usage of 
-- Microservice with Docker containers
+- Microservices with Docker containers
 - Ocelot Api gateway
 - Kubernetes (AKS)
 - Nginx Ingress Controller
