@@ -80,7 +80,7 @@ spec:
   selector:
     app: front-end
  
--- 
+--- 
 apiVersion: v1
 kind: Service
 metadata:
@@ -91,6 +91,3 @@ spec:
   - port: 80
   selector:
     app: apigateway
-
-
-
