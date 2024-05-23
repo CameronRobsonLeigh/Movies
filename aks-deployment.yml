@@ -79,7 +79,8 @@ spec:
   - port: 80
   selector:
     app: front-end
-    
+ 
+-- 
 apiVersion: v1
 kind: Service
 metadata:
@@ -90,17 +91,6 @@ spec:
   - port: 80
   selector:
     app: apigateway
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: catalogapi
-spec:
-  type: ClusterIP
-  ports:
-  - port: 80
-  selector:
-    app: catalogapi
 
 
 
