@@ -26,8 +26,3 @@ spec:
                 name: apigateway
                 port:
                   number: 80                  
-
-
-
-
-
