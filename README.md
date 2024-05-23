@@ -1,4 +1,8 @@
-Web Application set up to demonstrate usage of Microservices inside of docker containers including Ocelot Api gateway microservice that is then mapped to a AKS cluster assisted with NGINX ingress controller.
+Web Application set up to demonstrate usage of 
+- Microservice with Docker containers
+- Ocelot Api gateway
+- Kubernetes (AKS)
+- Nginx Ingress Controller
 
 
 ![image](https://github.com/CameronRobsonLeigh/Movies/assets/101926007/a27d73cb-6964-49cd-841b-e35ad95c66dd)
