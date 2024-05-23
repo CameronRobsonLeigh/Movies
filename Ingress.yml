@@ -9,6 +9,7 @@ spec:
         - testcam.co.uk
       secretName: certificate
   rules:
+    - host: testcam.co.uk
     - http:
         paths:
           - path: /
